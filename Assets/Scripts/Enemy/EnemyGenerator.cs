@@ -62,7 +62,7 @@ public class EnemyGenerator : MonoBehaviour
 
         if(GameManager.instance.currentTime >= 120.0f && !isEnemyComming)
         // Time.deltaTime은 부동 소수점으로 계산하는 시간이기 때문에 오차가 발생해 정확히 3.0f가 일치하는 순간이 일어나지 않음.
-        // int로 바꾼다고 해도 소수점이기 때문에 3초인 경우가 매우 많음. -> 따라서 isEnemyComming 을 이용해 해당 시간대에 한 번만 실행되도록 한다. - 제미나이
+        // int로 바꾼다고 해도 소수점이기 때문에 3초인 경우가 매우 많음. -> 따라서 isEnemyComming 을 이용해 해당 시간대에 한 번만 실행되도록 한다.
         {
             isEnemyComming = true;  // 한 번 적 스폰 이후 다음 프레임에서 이 적을 스폰하지 못하도록 방지
 
@@ -90,11 +90,7 @@ public class EnemyGenerator : MonoBehaviour
     }
     
     Vector3 SetSpawnPosition()  // 적의 스폰 위치를 결정하는 함수 + 맵 안에서만 스폰하되 플레이어 카메라 밖에서만 스폰되도록 함
-    {   // 제미나이 이용 + 아래 링크 참조
-        // https://velog.io/@gkswh4860/Unity-%ED%8A%B9%EC%A0%95-%EB%B2%94%EC%9C%84-%EB%82%B4%EC%97%90%EC%84%9C-%EB%9E%9C%EB%8D%A4%ED%95%9C-%EC%9C%84%EC%B9%98%EC%97%90-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%EC%8A%A4%ED%8F%B0%ED%95%98%EA%B8%B0
-
-
-
+    {   
         float spawnArea_x = Random.Range(-mapAreahalf_x, mapAreahalf_x);   // 맵의 오른쪽 끝에서 왼쪽 끝 사이의 값 들 중 랜덤하게 값을 선택
         float spawnArea_z = Random.Range(-mapAreahalf_z, mapAreahalf_z);   // 맵의 위 쪽 끝에서 아래 쪽 끝 사이의 값 들 중 랜덤하게 값을 선택
         // -> 즉 맵 범위 안에서 랜덤한 위치의 값을 랜덤하게 선택

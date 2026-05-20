@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour // 총의 공통 기능을 저장하는 스크립트 - 챗gpt 이용
+public class Gun : MonoBehaviour // 총의 공통 기능을 저장하는 스크립트
 {
     protected string gunName;
     public float fireRate;

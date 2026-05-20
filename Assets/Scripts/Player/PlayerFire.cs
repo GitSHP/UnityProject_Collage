@@ -16,7 +16,7 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 특정 시간이 지날 때 마다 총알 발사하기 - 제미나이 사용
+        // 특정 시간이 지날 때 마다 총알 발사하기
         fireCoolTime -= Time.deltaTime; 
 
         if(fireCoolTime <= 0.0f)    // fireCoolTime의 시간이 0이 되면

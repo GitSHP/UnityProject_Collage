@@ -46,7 +46,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     void FixedUpdate()  // Update 함수에서 플레이어 이동 시 카메라가 떨리는 현상이 나타나 이를 해결하기 위해 FixedUpdate 사용
-    {   // https://www.youtube.com/watch?v=Y0f2Oqk_Tcs - 캐릭터 추적 시 카메라 떨림 해결법
+    { 
         MoveJoyStick();
         RotationJoyStick();
     }
@@ -82,9 +82,9 @@ public class PlayerManager : MonoBehaviour
         transform.position += diretion * speed * Time.deltaTime;    // 전역 공간 기준으로 이동
 
         Vector3 localDiretion = transform.InverseTransformDirection(diretion);  
-        // 전역 공간의 방향을 지역 공간의 방향으로 변환 플레아어 캐릭터가 보는 방향에 따라 애니메이션이 실행되기 위해서 - 제미나이
+        // 전역 공간의 방향을 지역 공간의 방향으로 변환 플레아어 캐릭터가 보는 방향에 따라 애니메이션이 실행되기 위해서
 
-        // 현제 플레이어의 보는 방향에 따라 애니메이션을 다르게 실행 - 제미나이
+        // 현제 플레이어의 보는 방향에 따라 애니메이션을 다르게 실행
         if (localDiretion.z > 0.0f)   // 플레이어가 보는 방향 기준 앞 쪽으로 이동할 때
         {
             anim.SetBool("isWalkBackward", false); 
@@ -102,7 +102,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void RotationJoyStick() // 조이스틱으로 캐릭터 회전시키기 - 제미나이 사용
+    void RotationJoyStick() // 조이스틱으로 캐릭터 회전시키기
     {
         float rotationHorizontal = rotationJoyStick.Horizontal; // 수평 축 입력 (-1 ~ 1)
         float rotationVertical = rotationJoyStick.Vertical; // 수직 축 입력 (-1 ~ 1)
@@ -122,7 +122,7 @@ public class PlayerManager : MonoBehaviour
         // transform.rotation 현재 회전 방향에서 targetRotation 목표 회전 방향으로 rotationSpeed * Time.deltaTime의 속도만큼 부드럽게 회전
     } 
 
-    public void TakeDamage(int damage) // https://withchan.tistory.com/47 - 플레이어 체력 구현하기
+    public void TakeDamage(int damage) // 플레이어 체력 구현하기
     {
         if (isDead)
         {
@@ -151,7 +151,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void CheckHealth()  
-     // 플레이어 체력 바 만들기 - https://sungmin08.tistory.com/16 + 제미나이
+     // 플레이어 체력 바 만들기
     {
         healthBar.value = (float)currentHealth / maxHealth;
         // Mathf.Lerp = 선형보간 -> 두 점 a, b 사이의 값(c)을 구하기 위해 두 점을 연결한 직선을 만들어 사이 값을 계산하는 방법이다.

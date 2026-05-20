@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour // 총알의 기능을 정의하는 클래스
         {
             Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
             enemy.TakeDamage(bulletDamage);
-            // 적에게 데미지 주기 위해 적의 스크립트 컴포넌트가 상속받고 있는 클래스(GetComponentInParent를 이용)를 찾아서 그곳에서 damage와 연결해 적의 체력 낮추기 -> 제미나이
+            // 적에게 데미지 주기 위해 적의 스크립트 컴포넌트가 상속받고 있는 클래스(GetComponentInParent를 이용)를 찾아서 그곳에서 damage와 연결해 적의 체력 낮추기
 
             Destroy(gameObject);
         } 
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour // 총알의 기능을 정의하는 클래스
         {
             BossZombieController boss = other.gameObject.GetComponent<BossZombieController>();
             boss.TakeDamage(bulletDamage);
-            // 적에게 데미지 주기 위해 적의 스크립트 컴포넌트가 상속받고 있는 클래스(GetComponentInParent를 이용)를 찾아서 그곳에서 damage와 연결해 적의 체력 낮추기 -> 제미나이
+            // 적에게 데미지 주기 위해 적의 스크립트 컴포넌트가 상속받고 있는 클래스(GetComponentInParent를 이용)를 찾아서 그곳에서 damage와 연결해 적의 체력 낮추기
 
             Destroy(gameObject);
         }

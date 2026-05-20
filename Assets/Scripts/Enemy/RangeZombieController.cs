@@ -41,8 +41,6 @@ public class RangeZombieController : Enemy
     }
     void ChasePlayer()
     {
-        // https://withchan.tistory.com/42 - 플레이어 캐릭터를 추적하는 적 AI 만드는 법 + 제미나이 이용
-        
         if (player)
         {
             currentState = EnemyState.Chase;
@@ -52,7 +50,6 @@ public class RangeZombieController : Enemy
             Vector3 targetPosition = player.transform.position; // 적이 플레이어를 향해 움직일 때마다 둥둥 떠다니는 현상 발견
             targetPosition.y = transform.position.y;    // 이는 플레이어의 피벗 값이 Y = 0 값보다 높기 때문에 발생하는 현상으로 보임
             // 이를 해결하기 위해 X값과 Z값은 그대로 두고 Y값만 0으로 고정하여 적이 플레이어을 향해 갈 때 둥둥 떠다니지 못하도록 수정
-            // 제미나이
 
             diretion = targetPosition - transform.position;  // 플레이어의 위치 값에서 자신의 위치 값을 빼서 방향 벡터를 구한다.
             rotation = Quaternion.LookRotation(diretion);
@@ -80,7 +77,6 @@ public class RangeZombieController : Enemy
 
     void CheckPlayerDistanceAndAttack() // 적과 플레이어 사이의 거리를 계산, 거리가 attackDistance보다 짧아졌을 때 적이 플레이어를 공격하는 함수
     {
-        // https://parksh3641.tistory.com/entry/%EC%9C%A0%EB%8B%88%ED%8B%B0-C-%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%EC%B6%94%EC%A0%81%ED%95%98%EB%8A%94-%EB%AA%AC%EC%8A%A4%ED%84%B0-%EA%B0%84%EB%8B%A8-%EA%B5%AC%ED%98%84
         // 적과 플레이어 사이의 거리를 계산하는 방법
         float distanceToPlayer;
         try
@@ -108,7 +104,7 @@ public class RangeZombieController : Enemy
         }
     }
     
-    IEnumerator DoAttack()  // 제미나이 사용
+    IEnumerator DoAttack()
     {
         anim.SetBool("isMove", false);
         anim.SetBool("isIdel", true);   // 공격하기 위해 멈춰 있는 동안은 움직이는 애니메이션이 아닌 가만히 서 있는 애니메이션이 나오도록 함
@@ -116,7 +112,8 @@ public class RangeZombieController : Enemy
         isAttacking = true; // 현재 적 상태를 공격 중으로 변경
         currentState = EnemyState.Attack;   // 현재 적 상태를 공격 중으로 변경
 
-        yield return new WaitForSeconds(1f);    // 적이 플레이어와 일정 거리 이상 짧아졌을 때 바로 공격해 피하기 어렵기 때문에 공격 상태가 돼면 바로 공격하지 못하고 잠시 멈춰있도록 함
+        yield return new WaitForSeconds(1f);    
+        // 적이 플레이어와 일정 거리 이상 짧아졌을 때 바로 공격해 피하기 어렵기 때문에 공격 상태가 돼면 바로 공격하지 못하고 잠시 멈춰있도록 함
         
         diretion = player.transform.position - transform.position;
         diretion.y = 0;

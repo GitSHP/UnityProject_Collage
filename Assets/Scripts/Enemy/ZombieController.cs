@@ -18,7 +18,6 @@ public class ZombieController : Enemy
     // Update is called once per frame
     void Update()
     {   
-        // 제미나이 이용
         // 플레이어와 특정 거리 이상 가까워지면 잠시 동작을 멈추고 원거리 공격만 하도록 하는 AI
         switch (currentState)   // 현재 적 상태를 확인
         {
@@ -34,8 +33,6 @@ public class ZombieController : Enemy
 
     void ChasePlayer()
     {
-        // https://withchan.tistory.com/42 - 플레이어 캐릭터를 추적하는 적 AI 만드는 법
-        
         if (player)
         {
             Vector3 targetPosition = player.transform.position; // 적이 플레이어를 향해 움직일 때마다 둥둥 떠다니는 현상 발견
@@ -55,9 +52,9 @@ public class ZombieController : Enemy
             currentState = EnemyState.Chase;
             
             Vector3 localDiretion = transform.InverseTransformDirection(diretion);  
-            // 전역 공간의 방향을 지역 공간의 방향으로 변환 플레아어 캐릭터가 보는 방향에 따라 애니메이션이 실행되기 위해서 - 제미나이
+            // 전역 공간의 방향을 지역 공간의 방향으로 변환 플레아어 캐릭터가 보는 방향에 따라 애니메이션이 실행되기 위해서
             
-            // 현재 게임 오브젝트가 보는 방향에 따라 애니메이션을 다르게 실행 - 제미나이
+            // 현재 게임 오브젝트가 보는 방향에 따라 애니메이션을 다르게 실행
             if (localDiretion.z > 0.0f)   // 적이 보는 방향 기준 앞 쪽으로 이동할 때
             {
                 anim.SetBool("isMove", true);
@@ -88,7 +85,7 @@ public class ZombieController : Enemy
         }
     }
 
-    IEnumerator DoAttack()  // 코루틴 사용을 위한 열거자 인터페이스 - 제미나이 사용
+    IEnumerator DoAttack()  // 코루틴 사용을 위한 열거자 인터페이스
     {
         isAttacking = true; // 현재 적 상태를 공격 중으로 변경
         currentState = EnemyState.Attack;   // 현재 적 상태를 공격 중으로 변경

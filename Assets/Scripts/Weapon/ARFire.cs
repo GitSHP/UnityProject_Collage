@@ -19,7 +19,7 @@ public class ARFire : Gun
     {
         if(PlayerManager.instance.isDead == false)
         {
-            // 특정 시간이 지날 때 마다 총알 발사하기 - 챗GPT 사용 -> 코루틴 방법도 있지만 너무 복잡함..
+            // 특정 시간이 지날 때 마다 총알 발사하기 -> 코루틴 방법도 있지만 너무 복잡함..
             fireCoolTime -= Time.deltaTime; 
 
             if(fireCoolTime <= 0.0f)    // fireRate의 시간이 0이 되면 -> 총알 발사 속도 조절

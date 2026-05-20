@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0; 
         // 코루틴의 WaitForSeconds는 게임 내 시간에 영향을 받는다.
-        // 따라서 게임 내 시간이 멈춘 상태에서 카운트다운하기 위해서는 실제 세계의 시간을 사용하는 WaitForSecondsRealtime 사용한다 - 제미나이
+        // 따라서 게임 내 시간이 멈춘 상태에서 카운트다운하기 위해서는 실제 세계의 시간을 사용하는 WaitForSecondsRealtime 사용한다
         startGamePanel.SetActive(true);
         yield return new WaitForSecondsRealtime(1f); 
         startGameUI.text = "3";

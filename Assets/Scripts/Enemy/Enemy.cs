@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour // 적의 공통 기능을 정의하는 클래스
     public void TakeDamage(int damage)  
     {
         Debug.Log("좀비 피격");
-        if (isDead) // 적이 이미 죽고있는 상황에서 총알을 맞으면 여러 번 죽는 것처럼 인식하는 상황 발생 - 이를 해결하기 위한 isDead - 제미나이
+        if (isDead) // 적이 이미 죽고있는 상황에서 총알을 맞으면 여러 번 죽는 것처럼 인식하는 상황 발생 - 이를 해결하기 위한 isDead
         {
             return;
         }
@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour // 적의 공통 기능을 정의하는 클래스
         speed = 0.0f;   
         // 적이 DelayMove 코루틴을 호출한 상태에서 한번 더 피격 당하면 speed가 0으로 고정되는 문제 발생 - tempSpeed = speed하면 DelayMove 하는동안 Speed = 0 이고
         // 이를 코루틴 종료 시 speed = tempSpeed에 의해 speed가 영구히 0으로 바뀌는 현상 발생
-        // 따라서 이를 해결하기 위해 tempSpeed가 아닌 원래 속도를 저장하는 변수를 사용해서 이를 해결한다. - 제미나이
+        // 따라서 이를 해결하기 위해 tempSpeed가 아닌 원래 속도를 저장하는 변수를 사용해서 이를 해결한다.
 
         anim.SetBool("Hit",true);
 
